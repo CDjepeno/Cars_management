@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des voitures{% endblock %}
+
+{% block monTitre %}Listes des voitures{% endblock %}
+
+{% block body %}
+<div class="row no-guiters">
+    {% for car in cars %}
+        {% include "partials/_car.html.twig" %}
+    {% endfor %}
+</div>
+
+{% endblock %}

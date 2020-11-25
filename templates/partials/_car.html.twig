@@ -1,0 +1,21 @@
+<div class="col-12 col-lg-6 p-1">
+    <div class="card mb-3">
+        <div class="row no-gutters align-items-center p-2">
+            <div class="col-12 col-md-4">
+                <img src="{{ asset('build/images/'~ car.model.image) }}" alt="{{ car.model.name }}" class='img'>
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.registration}}</h5>
+                    <p class="card-text">
+                        <div>Marque : {{car.model.mark.name}}</div>
+                        <div>Modèle : {{car.model.name}}</div>
+                        <div>Nombre de porte : {{car.door}}</div>
+                        <div>Annés : {{car.year}}</div>
+                        <div>Prix : {{car.model.avgprice}}&euro;</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,10 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
         {% block stylesheets %}{% endblock %}
+        {{ encore_entry_link_tags('css/app') }}
+        
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% include "partials/_navbar.html.twig" %}
+        <div class="container">
+            <h1 class="border border-dark rounded text-white m-2 p-2 text-center bg-info">{% block monTitre %}{% endblock %}</h1>
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
