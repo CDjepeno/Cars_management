@@ -5,10 +5,26 @@
 {% block monTitre %}Listes des voitures{% endblock %}
 
 {% block body %}
+{{form_start(form)}}
+<div class="row  align-items-center text-center">
+    <div class="col">
+        {{form_row(form.minYear)}}
+    </div>
+    <div class="col">
+        {{form_row(form.maxYear)}}
+    </div>
+    <div class="col-2">
+        <button type="submit" class="btn btn-info">Filtrer</button>
+    </div>
+</div>
+{{form_end(form)}}
 <div class="row no-guiters">
     {% for car in cars %}
         {% include "partials/_car.html.twig" %}
     {% endfor %}
+    <div class="navigation mb-5">
+    {{ knp_pagination_render(cars) }}
+    </div>
 </div>
 
 {% endblock %}

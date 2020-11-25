@@ -1,3 +1,4 @@
+"User strict"
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -10,5 +11,9 @@
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
+let $ = require('jquery');
 
+global.$ = global.jQuery = $;
+
+require('bootstrap');
 console.log('Hello Webpack Encore! Edit me in assets/app.js');
