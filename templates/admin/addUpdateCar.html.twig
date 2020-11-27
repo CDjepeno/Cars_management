@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter ou Modifier une voitures{% endblock %}
+
+{% block monTitre %}
+    {% if is_Update %}
+        Modifier le {{car.model.name}}
+    {% else %}
+        Ajouter un véhicule
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% for label,messages in app.flashes %}
+        <div class="container">
+            <div class="alert alert-{{label}}">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    {{form_start(form)}}
+    {{form_widget(form)}}
+    {% if is_Update %}
+        <a href="{{ path("admin_cars") }}" class="btn btn-primary">Retour</a>
+        <button type="submit" class="btn btn-success">Modifier</button>
+    {% else %}
+        <a href="{{ path("admin_cars") }}" class="btn btn-primary">Retour</a>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    {% endif %}
+    {{form_end(form)}}
+{% endblock %}

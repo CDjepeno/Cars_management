@@ -17,5 +17,15 @@
                 </div>
             </div>
         </div>
+        {% if admin %}
+            <div class="row no-gutters">
+                <a href="{{ path("update_car", {id:car.id}) }}" class="col btn btn-warning">Modifier</a>
+                <form method="POST" class="col" style="display:inline-block" action="{{ path('delete_car', {id:car.id}) }}" onsubmit="return confirm('Confirmer la suppression')">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ car.id)}}">
+                    <input type="submit" class="col btn btn-danger" value="supprimer" >
+                </form>
+            </div>
+        {% endif %}
     </div>
 </div>

@@ -26,11 +26,11 @@ class CarRepository extends ServiceEntityRepository
         $req = $this->createQueryBuilder('c');
  
         if($searchCar->getMinYear()){
-            $req = $req->andWhere("c.year > :min")
+            $req = $req->andWhere("c.year >= :min")
                         ->setParameter(":min", $searchCar->getMinYear());
         }
         if($searchCar->getMaxYear()){
-            $req = $req->andWhere("c.year < :max")
+            $req = $req->andWhere("c.year <= :max")
                         ->setParameter(":max", $searchCar->getMaxYear());
         }
 

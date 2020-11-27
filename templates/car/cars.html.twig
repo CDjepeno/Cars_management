@@ -5,6 +5,9 @@
 {% block monTitre %}Listes des voitures{% endblock %}
 
 {% block body %}
+{% if admin %}
+    <a href="{{ path('add_car') }}" class="col-2 btn btn-success my-3">Ajouter</a>
+{% endif %}
 {{form_start(form)}}
 <div class="row  align-items-center text-center">
     <div class="col">
@@ -18,6 +21,17 @@
     </div>
 </div>
 {{form_end(form)}}
+
+{% for label,messages in app.flashes %}
+    <div class="container">
+        <div class="alert alert-{{label}}">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+
 <div class="row no-guiters">
     {% for car in cars %}
         {% include "partials/_car.html.twig" %}
