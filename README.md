@@ -36,7 +36,7 @@ or
 $ php -S localhost:8000 -t public
 ```
 ```bash
-Credentials
+Credentials Admin
 $ id : Chistopher
 $ password : djepeno
 ```
